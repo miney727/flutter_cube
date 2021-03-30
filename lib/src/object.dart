@@ -33,7 +33,7 @@ class Object {
 
     // load mesh from obj file
     if (fileName != null) {
-      loadObj(fileName, normalized, isAsset: isAsset).then((List<Mesh> meshes) {
+      loadObj(fileName, normalized).then((List<Mesh> meshes) {
         if (meshes.length == 1) {
           this.mesh = meshes[0];
         } else if (meshes.length > 1) {

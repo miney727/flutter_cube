@@ -8,6 +8,8 @@ import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:path/path.dart' as path;
 import 'material.dart';
+import 'package:flutter/foundation.dart';
+
 
 class Polygon {
   Polygon(this.vertex0, this.vertex1, this.vertex2, [this.sumOfZ = 0]);
@@ -85,6 +87,8 @@ Future<List<Mesh>> loadObj(String fileName, bool normalized, {bool isAsset = tru
       case 'mtllib':
         // load material library file. eg: mtllib master.mtl
         final mtlFileName = path.join(basePath, parts[1]);
+        
+        debugPrint('mtlFileName: $mtlFileName');
         materials = await loadMtl(mtlFileName, isAsset: isAsset);
         break;
       case 'usemtl':

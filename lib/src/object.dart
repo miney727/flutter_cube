@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:vector_math/vector_math_64.dart';
 import 'scene.dart';
 import 'mesh.dart';
+import 'package:flutter/foundation.dart';
 
 class Object {
   Object({
@@ -40,6 +41,7 @@ class Object {
           // multiple objects
           for (Mesh mesh in meshes) {
             add(Object(name: mesh.name, mesh: mesh, backfaceCulling: backfaceCulling, lighting: lighting));
+            debugPrint('objectadded');
           }
         }
         this.scene?.objectCreated(this);

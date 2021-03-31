@@ -5,7 +5,6 @@ import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:path/path.dart' as path;
 import 'dart:ui';
-import 'package:flutter/material.dart';
 
 class Material {
   Material()
@@ -48,8 +47,6 @@ Future<Map<String, Material>> loadMtl(String fileName, {bool isAsset = true}) as
       data = await rootBundle.loadString(fileName);
     } else {
       data = await File(fileName).readAsString();
-      debugPrint("data");
-      debugPrint(data);
     }
   } catch (_) {
     return materials;

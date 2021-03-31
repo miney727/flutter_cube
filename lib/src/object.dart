@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:vector_math/vector_math_64.dart';
 import 'scene.dart';
 import 'mesh.dart';
+import 'package:flutter/foundation.dart';
 
 class Object {
   Object({
@@ -30,11 +31,12 @@ class Object {
       child.parent = this;
     }
     this.scene = scene;
-
+    debugPrint('fileName: $fileName');
     // load mesh from obj file
     if (fileName != null) {
       loadObj(fileName, normalized, isAsset: isAsset).then((List<Mesh> meshes) {
         if (meshes.length == 1) {
+          debugPrint('mesh: $(meshes.length)');
           this.mesh = meshes[0];
         } else if (meshes.length > 1) {
           // multiple objects

@@ -77,7 +77,7 @@ Future<List<Mesh>> loadObj(String fileName, bool normalized, {bool isAsset = tru
     data = await rootBundle.loadString(fileName);
   } else {
     // load obj data from file.
-    data = await File(fileName).readAsString();
+    data = File(fileName).readAsStringSync();
   }
   final lines = data.split('\n');
   for (var line in lines) {

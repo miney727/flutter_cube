@@ -36,7 +36,7 @@ class Object {
     if (fileName != null) {
       loadObj(fileName, normalized, isAsset: isAsset).then((List<Mesh> meshes) {
         if (meshes.length == 1) {
-          debugPrint('mesh: $(meshes.length)');
+          debugPrint('mesh: ${meshes.length}');
           this.mesh = meshes[0];
         } else if (meshes.length > 1) {
           // multiple objects

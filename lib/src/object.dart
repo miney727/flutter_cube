@@ -31,6 +31,7 @@ class Object {
       child.parent = this;
     }
     this.scene = scene;
+    debugPrint('Name: ${this.name}');
     debugPrint('fileName: $fileName');
     // load mesh from obj file
     if (fileName != null) {

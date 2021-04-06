@@ -46,7 +46,7 @@ Future<Map<String, Material>> loadMtl(String fileName, {bool isAsset = true}) as
     if (isAsset) {
       data = await rootBundle.loadString(fileName);
     } else {
-      data = await File(fileName).readAsStringSync();
+      data = await File(fileName).readAsString();
     }
   } catch (_) {
     return materials;

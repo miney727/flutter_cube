@@ -5,6 +5,7 @@ import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:path/path.dart' as path;
 import 'dart:ui';
+import 'package:flutter/foundation.dart';
 
 class Material {
   Material()
@@ -96,6 +97,7 @@ Future<Map<String, Material>> loadMtl(String fileName, {bool isAsset = true}) as
       case 'map_Kd':
         if (parts.length >= 2) {
           material.mapKd = parts.last;
+          debugPrint('mapKd: ${material.mapKd}');
         }
         break;
       case 'Ns':

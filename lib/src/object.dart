@@ -40,6 +40,7 @@ class Object {
         if (meshes.length == 1) {
           debugPrint('mesh: ${meshes.length}');
           this.mesh = meshes[0];
+          isLoad = true;
         } else if (meshes.length > 1) {
           // multiple objects
           for (Mesh mesh in meshes) {

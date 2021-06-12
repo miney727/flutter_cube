@@ -55,7 +55,6 @@ class Object {
     } else {
       this.scene?.objectCreated(this);
     }
-    isLoad = true;
   }
 
   /// The local position of this object relative to the parent. Default is Vector3(0.0, 0.0, 0.0). updateTransform after you change the value.

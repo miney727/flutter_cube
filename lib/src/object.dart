@@ -20,7 +20,6 @@ class Object {
     bool normalized = true,
     String? fileName,
     bool isAsset = true,
-    bool isLoad = false,
   }) {
     if (position != null) position.copyInto(this.position);
     if (rotation != null) rotation.copyInto(this.rotation);
@@ -97,6 +96,8 @@ class Object {
 
   /// Is this object visiable.
   bool visiable;
+
+  bool isload;
 
   /// The transformation of the object in the scene, including position, rotation, and scaling.
   final Matrix4 transform = Matrix4.identity();

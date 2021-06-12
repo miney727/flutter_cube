@@ -20,8 +20,8 @@ class Object {
     bool normalized = true,
     String? fileName,
     bool isAsset = true,
+    this.isLoad = false,
   }) {
-    isLoad = false;
     if (position != null) position.copyInto(this.position);
     if (rotation != null) rotation.copyInto(this.rotation);
     if (scale != null) scale.copyInto(this.scale);

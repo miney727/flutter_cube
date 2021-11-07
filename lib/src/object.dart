@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:vector_math/vector_math_64.dart';
 import 'scene.dart';
 import 'mesh.dart';
-import 'package:flutter/foundation.dart';
 
 class Object {
   Object({
@@ -20,10 +19,6 @@ class Object {
     bool normalized = true,
     String? fileName,
     bool isAsset = true,
-<<<<<<< HEAD
-    this.isLoad = false,
-=======
->>>>>>> parent of 6a5836a (isLoad)
   }) {
     if (position != null) position.copyInto(this.position);
     if (rotation != null) rotation.copyInto(this.rotation);
@@ -35,15 +30,12 @@ class Object {
       child.parent = this;
     }
     this.scene = scene;
-    debugPrint('Name: ${this.name}');
-    debugPrint('fileName: $fileName');
+
     // load mesh from obj file
     if (fileName != null) {
       loadObj(fileName, normalized, isAsset: isAsset).then((List<Mesh> meshes) {
         if (meshes.length == 1) {
-          debugPrint('mesh: ${meshes.length}');
           this.mesh = meshes[0];
-          isLoad = true;
         } else if (meshes.length > 1) {
           // multiple objects
           for (Mesh mesh in meshes) {
@@ -96,8 +88,6 @@ class Object {
 
   /// Is this object visiable.
   bool visiable;
-
-  bool isLoad;
 
   /// The transformation of the object in the scene, including position, rotation, and scaling.
   final Matrix4 transform = Matrix4.identity();

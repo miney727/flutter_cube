@@ -22,7 +22,7 @@ class Scene {
   late Object world;
   Image? texture;
   BlendMode blendMode = BlendMode.srcOver;
-  BlendMode textureBlendMode = BlendMode.multiply;
+  BlendMode textureBlendMode = BlendMode.srcOver;
   VoidCallback? _onUpdate;
   ObjectCreatedCallback? _onObjectCreated;
   int vertexCount = 0;

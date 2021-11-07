@@ -8,8 +8,6 @@ import 'package:vector_math/vector_math_64.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:path/path.dart' as path;
 import 'material.dart';
-import 'package:flutter/foundation.dart';
-
 
 class Polygon {
   Polygon(this.vertex0, this.vertex1, this.vertex2, [this.sumOfZ = 0]);
@@ -77,7 +75,7 @@ Future<List<Mesh>> loadObj(String fileName, bool normalized, {bool isAsset = tru
     data = await rootBundle.loadString(fileName);
   } else {
     // load obj data from file.
-    data = File(fileName).readAsStringSync();
+    data = await File(fileName).readAsString();
   }
   final lines = data.split('\n');
   for (var line in lines) {
@@ -87,8 +85,6 @@ Future<List<Mesh>> loadObj(String fileName, bool normalized, {bool isAsset = tru
       case 'mtllib':
         // load material library file. eg: mtllib master.mtl
         final mtlFileName = path.join(basePath, parts[1]);
-        
-        debugPrint('mtlFileName: $mtlFileName');
         materials = await loadMtl(mtlFileName, isAsset: isAsset);
         break;
       case 'usemtl':
@@ -210,7 +206,7 @@ Future<List<Mesh>> _buildMesh(
 
     // load texture image from assets.
     final Material? material = (materials != null) ? materials[elementMaterials[index]] : null;
-    final MapEntry<String, Image>? imageEntry = await loadTexture(material, basePath);
+    final MapEntry<String, Image>? imageEntry = await loadTexture(material, basePath,isAsset: isAsset);
 
     // fix zero texture area
     if (imageEntry != null) {
